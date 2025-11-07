@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+// Function prototype for call by value
+void swapByValue(int a, int b);
+
+// Function prototype for call by reference (using references)
+void swapByReference(int &a, int &b);
+
+// Function prototype for call by pointer
+void swapByPointer(int *a, int *b);
+
+int main() {
+    int x = 10, y = 20;
+
+    cout << "Initial values: x = " << x << ", y = " << y << endl;
+
+    // Call by value
+    swapByValue(x, y);
+    cout << "After swapByValue: x = " << x << ", y = " << y << " (no change)\n";
+
+    // Call by reference
+    swapByReference(x, y);
+    cout << "After swapByReference: x = " << x << ", y = " << y << " (values swapped)\n";
+
+    // Swap back using pointers
+    swapByPointer(&x, &y);
+    cout << "After swapByPointer: x = " << x << ", y = " << y << " (values swapped again)\n";
+
+    return 0;
+}
+
+// Call by value: Works on copies, does not affect originals
+void swapByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Call by reference: Works directly on the original variables
+void swapByReference(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Call by pointer: Works on addresses of variables
+void swapByPointer(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
