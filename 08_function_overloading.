@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to add two integers
+int sum(int a, int b) {
+    return a + b;
+}
+
+// Function to add two floating-point numbers
+float sum(float a, float b) {
+    return a + b;
+}
+
+// Function to "add" (concatenate) two strings
+string sum(string a, string b) {
+    return a + b;  // Combines both strings
+}
+
+int main() {
+    int x = 5, y = 10;
+    float p = 2.5, q = 3.7;
+    string s1 = "Hello ", s2 = "World!";
+
+    cout << "Sum of integers (5 + 10): " << sum(x, y) << endl;
+    cout << "Sum of floats (2.5 + 3.7): " << sum(p, q) << endl;
+    cout << "Sum of strings (\"Hello \" + \"World!\"): " << sum(s1, s2) << endl;
+
+    return 0;
+}
