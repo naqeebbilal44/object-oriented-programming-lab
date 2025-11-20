@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class CompoundInterest {
+private:
+    float principal, rate, time;
+    int n;
+
+public:
+    // Constructor with default n = 1
+    CompoundInterest(float p, float r, float t, int nTimes = 1) {
+        principal = p;
+        rate = r / 100; // convert to decimal
+        time = t;
+        n = nTimes;
+    }
+
+    float amount() {
+        return principal * pow((1 + rate / n), n * time);
+    }
+
+    float interest() {
+        return amount() - principal;
+    }
+
+    void display() {
+        cout << "Principal: " << principal << endl;
+        cout << "Rate: " << rate * 100 << "%" << endl;
+        cout << "Time: " << time << " years" << endl;
+        cout << "Compounded: " << n << " times per year" << endl;
+        cout << "Amount: " << amount() << endl;
+        cout << "Compound Interest: " << interest() << endl;
+    }
+};
+
+int main() {
+    CompoundInterest c(5000, 5, 2);  // n = 1 by default
+    c.display();
+
+    return 0;
+}
