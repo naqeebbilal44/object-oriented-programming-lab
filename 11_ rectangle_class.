@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    float length, width;
+
+public:
+    // Constructor 1 → Initialize both length and width
+    Rectangle(float l, float w) {
+        length = l;
+        width = w;
+    }
+
+    // Constructor 2 → Initialize only length (Square case)
+    Rectangle(float l) {
+        length = l;
+        width = l;   // width = length → square
+    }
+
+    // Function to calculate area
+    float area() {
+        return length * width;
+    }
+
+    // Function to calculate perimeter
+    float perimeter() {
+        return 2 * (length + width);
+    }
+
+    // Display function
+    void display() {
+        cout << "Length: " << length << ", Width: " << width << endl;
+        cout << "Area: " << area() << endl;
+        cout << "Perimeter: " << perimeter() << endl << endl;
+    }
+};
+
+int main() {
+    // Object 1: Rectangle
+    Rectangle r1(10, 5);
+    cout << "Rectangle:" << endl;
+    r1.display();
+
+    // Object 2: Square
+    Rectangle r2(6);
+    cout << "Square:" << endl;
+    r2.display();
+
+    return 0;
+}
