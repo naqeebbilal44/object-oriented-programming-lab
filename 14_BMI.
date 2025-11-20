@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class BMI {
+private:
+    float weight, height;
+
+public:
+    // Parameterized constructor
+    BMI(float w, float h) {
+        weight = w;
+        height = h;
+    }
+
+    float calculateBMI() {
+        return weight / (height * height);
+    }
+
+    void displayCategory(float bmi) {
+        if(bmi < 18.5)
+            cout << "Category: Underweight";
+        else if(bmi < 24.9)
+            cout << "Category: Normal";
+        else if(bmi < 29.9)
+            cout << "Category: Overweight";
+        else
+            cout << "Category: Obese";
+    }
+
+    void display() {
+        float bmi = calculateBMI();
+        cout << "Weight: " << weight << " kg" << endl;
+        cout << "Height: " << height << " m" << endl;
+        cout << "BMI: " << bmi << endl;
+        displayCategory(bmi);
+    }
+};
+
+int main() {
+    BMI b(65, 1.7);
+    b.display();
+    return 0;
+}
