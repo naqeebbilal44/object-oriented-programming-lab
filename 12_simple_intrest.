@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class Interest {
+private:
+    float principal, rate, time;
+
+public:
+    // Parameterized Constructor
+    Interest(float p, float r, float t) {
+        principal = p;
+        rate = r;
+        time = t;
+    }
+
+    // Function to calculate Simple Interest
+    float simpleInterest() {
+        return (principal * rate * time) / 100;
+    }
+
+    // Display function
+    void display() {
+        cout << "Principal: " << principal << endl;
+        cout << "Rate: " << rate << "%" << endl;
+        cout << "Time: " << time << " years" << endl;
+        cout << "Simple Interest: " << simpleInterest() << endl;
+    }
+};
+
+int main() {
+    // Create object using parameterized constructor
+    Interest obj(10000, 5, 2);  // P = 10000, R = 5%, T = 2 years
+
+    cout << "Simple Interest Calculation:" << endl;
+    obj.display();
+
+    return 0;
+}
